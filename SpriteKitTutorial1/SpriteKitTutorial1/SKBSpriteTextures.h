@@ -1,0 +1,33 @@
+//
+//  SKBSpriteTextures.h
+//  SpriteKitTutorial1
+//
+//  Created by hieu on 4/1/15.
+//  Copyright (c) 2015 hieu. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
+#define kPlayerRunRight1FileName             @"Player_Right1.png"
+#define kPlayerRunRight2FileName             @"Player_Right2.png"
+#define kPlayerRunRight3FileName             @"Player_Right3.png"
+#define kPlayerRunRight4FileName             @"Player_Right4.png"
+#define kPlayerSkidRightFileName             @"Player_RightSkid.png"
+#define kPlayerStillRightFileName            @"Player_Right_Still.png"
+
+#define kPlayerRunLeft1FileName              @"Player_Left1.png"
+#define kPlayerRunLeft2FileName              @"Player_Left2.png"
+#define kPlayerRunLeft3FileName              @"Player_Left3.png"
+#define kPlayerRunLeft4FileName              @"Player_Left4.png"
+#define kPlayerSkidLeftFileName              @"Player_LeftSkid.png"
+#define kPlayerStillLeftFileName             @"Player_Left_Still.png"
+
+#define kPlayerJumpRightFileName             @"Player_RightJump.png"
+#define kPlayerJumpLeftFileName              @"Player_LeftJump.png"
+@interface SKBSpriteTextures : NSObject
+@property (nonatomic, strong) NSArray *playerRunRightTextures, *playerJumpRightTextures;
+@property (nonatomic, strong) NSArray *playerSkiddingRightTextures, *playerStillFacingRightTextures;
+@property (nonatomic, strong) NSArray *playerRunLeftTextures, *playerJumpLeftTextures;
+@property (nonatomic, strong) NSArray *playerSkiddingLeftTextures, *playerStillFacingLeftTextures;
+- (void)createAnimationTextures;
+@end
