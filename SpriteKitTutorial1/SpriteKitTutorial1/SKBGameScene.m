@@ -18,9 +18,9 @@
 - (void)didMoveToView:(SKView *)view
 {
     self.backgroundColor = [UIColor blackColor];
-   // CGRect edgeRect = CGRectMake(0.0, 0.0, 568.0, 420.0);
+    // CGRect edgeRect = CGRectMake(0.0, 0.0, 568.0, 420.0);
     
-   // self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:edgeRect];
+    // self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:edgeRect];
     // this example uses the simpler rectangle variety to create an edge along all four sides of the game screen, or scene.
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     
@@ -137,13 +137,13 @@
                 [_playerSprite wrapPlayer:CGPointMake(10, _playerSprite.position.y)];
             }
         }
-     }
+    }
     
-//    // rats / sidewalls
+    // rats / sidewalls
     if ((((firstBody.categoryBitMask & kWallCategory)!=0)&& ((secondBody.categoryBitMask&  kRatzCategory)!=0))) {
         SKBRat *theRatz = (SKBRat *)secondBody.node;
-     if (theRatz.position.x < 100) {
-        [theRatz wrapRatz:CGPointMake(self.frame.size.width-11,
+        if (theRatz.position.x < 100) {
+            [theRatz wrapRatz:CGPointMake(self.frame.size.width-11,
                                           theRatz.position.y)];
         } else {
             [theRatz wrapRatz:CGPointMake(11, theRatz.position.y)];
@@ -156,6 +156,26 @@
         NSLog(@"player contacted brick base");
     }
     
+    // Ratz / Ratz
+    if ((((firstBody.categoryBitMask & kRatzCategory) != 0) &&
+         ((secondBody.categoryBitMask & kRatzCategory) != 0))) {
+        SKBRat *theFirstRatz = (SKBRat *)firstBody.node;
+        SKBRat *theSecondRatz = (SKBRat *)secondBody.node;
+        NSLog(@"%@ & %@ have collided...", theFirstRatz.name,
+              theSecondRatz.name);
+        // cause first Ratz to turn and change directions
+        if (theFirstRatz.ratzStatus == SBRatzRunningLeft) {
+            [theFirstRatz turnRight];
+        } else if (theFirstRatz.ratzStatus == SBRatzRunningRight) {
+            [theFirstRatz turnLeft];
+        }
+        // cause second Ratz to turn and change directions
+        if (theSecondRatz.ratzStatus == SBRatzRunningLeft) {
+            [theSecondRatz turnRight];
+        } else if (theSecondRatz.ratzStatus == SBRatzRunningRight) {
+            [theSecondRatz turnLeft];
+        }
+    }
 }
 - (void)didEndContact:(SKPhysicsContact *)contact;
 {
@@ -176,18 +196,18 @@
             SKAction * spawnDelay = [SKAction waitForDuration:4];
             [self runAction:spawnDelay completion:^{
                 SKBRat * newEnemy = [SKBRat initNewRatz:self
-                                     startingPoint:CGPointMake(50, 280)
-                                         ratzIndex:0];
+                                          startingPoint:CGPointMake(50, 280)
+                                              ratzIndex:0];
                 [newEnemy spawnedInScene:self];
             }];
         } else if (location.y >= (self.frame.size.height / 2 )) {
-              // user touched upper half of the screen (zero = bottom of screen)
+            // user touched upper half of the screen (zero = bottom of screen)
             if (status != SBPlayerJumpingLeft && status != SBPlayerJumpingRight && status !=
                 SBPlayerJumpingUpFacingLeft && status != SBPlayerJumpingUpFacingRight) {
                 [_playerSprite jump];
             }
             NSLog(@"X: %f Y: %f height %f",location.x,location.y,(self.frame.size.height / 2 ));
-                    NSLog(@"jump");
+            NSLog(@"jump");
         } else if (location.x <= ( self.frame.size.width / 2 )) {
             // user touched left side of screen
             if (_playerSprite.playerStatus == SBPlayerRunningRight) {
@@ -231,5 +251,34 @@
     [self addChild:brickBase];
 }
 - (void)update:(NSTimeInterval)currentTime
-{}
+{
+    NSLog(@"update Method!");
+    if (!_enemyIsSpawningFlag && _spawnedEnemyCount < 5) {
+        _enemyIsSpawningFlag = YES;
+        int castIndex = _spawnedEnemyCount;
+        int scheduleDelay = 5;
+        int leftSideX = CGRectGetMinX(self.frame)+kEnemySpawnEdgeBufferX;
+        int rightSideX = CGRectGetMaxX(self.frame)-kEnemySpawnEdgeBufferX;
+        int topSideY = CGRectGetMaxY(self.frame)-kEnemySpawnEdgeBufferY;
+        int startX = 0;
+        // alternate sides for every other spawn
+        if (castIndex % 2 == 0)
+            startX = leftSideX;
+        else
+            startX = rightSideX;
+        int startY = topSideY;
+        // begin delay & when completed spawn new enemy
+        SKAction * spacing = [SKAction waitForDuration:scheduleDelay];
+        [self runAction:spacing completion:^{
+            // create spawn the enemy
+            _enemyIsSpawningFlag = NO;
+            _spawnedEnemyCount = _spawnedEnemyCount +1;
+            SKBRat *newEnemy = [SKBRat initNewRatz:self
+                                     startingPoint:CGPointMake(startX, startY)
+                                         ratzIndex:castIndex];
+            [newEnemy spawnedInScene:self];
+        }];
+        
+    }
+}
 @end

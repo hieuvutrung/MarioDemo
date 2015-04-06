@@ -31,6 +31,7 @@
     /*The categoryBitMask tells the Physics engine that this node is of this type kPlayerCategory. The contactTestBitMask tells the Physics engine that this node can make contact with the provided types of nodes. Any node types not listed in the contactTestBitMask will be ignored.*/
     player.physicsBody.categoryBitMask = kPlayerCategory;
     player.physicsBody.contactTestBitMask = kWallCategory | kBaseCategory;
+    player.physicsBody.collisionBitMask = kBaseCategory | kWallCategory |kLedgeCategory;
     // boucing like a ball
     //    player.physicsBody.density = 0.1;
     //    player.physicsBody.linearDamping = 1.0;

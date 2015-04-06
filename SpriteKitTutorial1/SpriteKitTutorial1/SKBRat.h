@@ -14,6 +14,8 @@ typedef enum : int{
     SBRatzRunningRight
 }SBRatzStatus;
 @interface SKBRat : SKSpriteNode
+#define kEnemySpawnEdgeBufferX       60
+#define kEnemySpawnEdgeBufferY       60
 #define kRatzRunningIncrement      40
 @property int ratzStatus;
 @property (strong,nonatomic) SKBSpriteTextures *spriteTextures;
@@ -23,4 +25,6 @@ typedef enum : int{
 - (void)wrapRatz:(CGPoint)where;
 - (void)runRight;
 - (void)runLeft;
+- (void)turnRight;
+- (void)turnLeft;
 @end
