@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic) SKBPlayer *playerSprite;
 @property (strong, nonatomic) SKBSpriteTextures *spriteTextures;
+@property int spawnedEnemyCount;
+@property BOOL enemyIsSpawningFlag;
 @end

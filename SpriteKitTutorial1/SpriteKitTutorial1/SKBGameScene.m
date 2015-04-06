@@ -9,6 +9,7 @@
 #import "SKBGameScene.h"
 #import "AppDelegate.h"
 #import "SKBPlayer.h"
+#import "SKBRat.h"
 #import "SKBLedge.h"
 @implementation SKBGameScene
 {
@@ -29,6 +30,7 @@
     self.spriteTextures = [[SKBSpriteTextures alloc]init];
     [self.spriteTextures createAnimationTextures];
     //add background node
+    [self createSettings];
     [self addBackgroundNode];
     [self addBrickBaseNode];
     [self addLedge];
@@ -100,7 +102,12 @@
     ledgeIndex = ledgeIndex + howMany;
     
 }
-
+- (void)createSettings
+{
+    // Initialize Enemies & Schedule
+    _spawnedEnemyCount = 0;
+    _enemyIsSpawningFlag = NO;
+}
 #pragma mark - Contact delegate
 - (void)didBeginContact:(SKPhysicsContact *)contact;
 {
@@ -131,6 +138,17 @@
             }
         }
      }
+    
+//    // rats / sidewalls
+    if ((((firstBody.categoryBitMask & kWallCategory)!=0)&& ((secondBody.categoryBitMask&  kRatzCategory)!=0))) {
+        SKBRat *theRatz = (SKBRat *)secondBody.node;
+     if (theRatz.position.x < 100) {
+        [theRatz wrapRatz:CGPointMake(self.frame.size.width-11,
+                                          theRatz.position.y)];
+        } else {
+            [theRatz wrapRatz:CGPointMake(11, theRatz.position.y)];
+        }
+    }
     // Player / Base
     if ((((firstBody.categoryBitMask & kPlayerCategory) != 0) &&
          ((secondBody.categoryBitMask & kBaseCategory) != 0)))
@@ -153,6 +171,15 @@
         if (!_playerSprite) {
             _playerSprite = [SKBPlayer initNewPlayer:self startingPoint:location];
             [_playerSprite spawnedInScene:self];
+            
+            // spawn enemy after player 4 second
+            SKAction * spawnDelay = [SKAction waitForDuration:4];
+            [self runAction:spawnDelay completion:^{
+                SKBRat * newEnemy = [SKBRat initNewRatz:self
+                                     startingPoint:CGPointMake(50, 280)
+                                         ratzIndex:0];
+                [newEnemy spawnedInScene:self];
+            }];
         } else if (location.y >= (self.frame.size.height / 2 )) {
               // user touched upper half of the screen (zero = bottom of screen)
             if (status != SBPlayerJumpingLeft && status != SBPlayerJumpingRight && status !=
@@ -203,4 +230,6 @@
     brickBase.physicsBody.dynamic = NO;
     [self addChild:brickBase];
 }
+- (void)update:(NSTimeInterval)currentTime
+{}
 @end

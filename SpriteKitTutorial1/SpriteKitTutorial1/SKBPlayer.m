@@ -26,7 +26,7 @@
     player.playerStatus = SBPlayerFacingRight;
     // physics
     player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
-    
+    player.physicsBody.allowsRotation = NO;
     //set bitmask
     /*The categoryBitMask tells the Physics engine that this node is of this type kPlayerCategory. The contactTestBitMask tells the Physics engine that this node can make contact with the provided types of nodes. Any node types not listed in the contactTestBitMask will be ignored.*/
     player.physicsBody.categoryBitMask = kPlayerCategory;

@@ -10,7 +10,7 @@
 #import "SKBGameScene.h"
 @implementation SKBSplashScene
 
--(void)didMoveToView:(SKView *)view {
+- (void)didMoveToView:(SKView *)view {
     
     /* Setup your scene here */
     self.backgroundColor = [SKColor blackColor];
@@ -27,7 +27,7 @@
     [self addChild:splash];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
     // get node with name
