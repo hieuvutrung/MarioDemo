@@ -50,6 +50,10 @@
 		1CA682E01AD232D700104496 /* Ratz_Right3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA682D61AD232D700104496 /* Ratz_Right3.png */; };
 		1CA682E11AD232D700104496 /* Ratz_Right4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA682D71AD232D700104496 /* Ratz_Right4.png */; };
 		1CA682E21AD232D700104496 /* Ratz_Right5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA682D81AD232D700104496 /* Ratz_Right5.png */; };
+		1CA682E61AD26CDB00104496 /* Coin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA682E31AD26CDB00104496 /* Coin1.png */; };
+		1CA682E71AD26CDB00104496 /* Coin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA682E41AD26CDB00104496 /* Coin2.png */; };
+		1CA682E81AD26CDB00104496 /* Coin3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA682E51AD26CDB00104496 /* Coin3.png */; };
+		1CA682EB1AD270E900104496 /* SKBCoin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA682EA1AD270E900104496 /* SKBCoin.m */; };
 		1CDB92A61ACCDFDC00774579 /* SKBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB92A51ACCDFDC00774579 /* SKBUtils.m */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +113,11 @@
 		1CA682D61AD232D700104496 /* Ratz_Right3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ratz_Right3.png; sourceTree = "<group>"; };
 		1CA682D71AD232D700104496 /* Ratz_Right4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ratz_Right4.png; sourceTree = "<group>"; };
 		1CA682D81AD232D700104496 /* Ratz_Right5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ratz_Right5.png; sourceTree = "<group>"; };
+		1CA682E31AD26CDB00104496 /* Coin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coin1.png; sourceTree = "<group>"; };
+		1CA682E41AD26CDB00104496 /* Coin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coin2.png; sourceTree = "<group>"; };
+		1CA682E51AD26CDB00104496 /* Coin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coin3.png; sourceTree = "<group>"; };
+		1CA682E91AD270E900104496 /* SKBCoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBCoin.h; sourceTree = "<group>"; };
+		1CA682EA1AD270E900104496 /* SKBCoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBCoin.m; sourceTree = "<group>"; };
 		1CDB92A41ACCDFDC00774579 /* SKBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBUtils.h; sourceTree = "<group>"; };
 		1CDB92A51ACCDFDC00774579 /* SKBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +201,9 @@
 		1C8C70F01ACBC1FA00E3B7A5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1CA682E31AD26CDB00104496 /* Coin1.png */,
+				1CA682E41AD26CDB00104496 /* Coin2.png */,
+				1CA682E51AD26CDB00104496 /* Coin3.png */,
 				1CA682CF1AD232D700104496 /* Ratz_Left1.png */,
 				1CA682D01AD232D700104496 /* Ratz_Left2.png */,
 				1CA682D11AD232D700104496 /* Ratz_Left3.png */,
@@ -235,6 +247,8 @@
 				1C417DCC1ACE8E520011C490 /* SKBLedge.m */,
 				1CA682CC1AD2229A00104496 /* SKBRat.h */,
 				1CA682CD1AD2229A00104496 /* SKBRat.m */,
+				1CA682E91AD270E900104496 /* SKBCoin.h */,
+				1CA682EA1AD270E900104496 /* SKBCoin.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -324,6 +338,7 @@
 				1C78ABD11ACE33E5000FE213 /* Player_RightSkid.png in Resources */,
 				1CA682E11AD232D700104496 /* Ratz_Right4.png in Resources */,
 				1C78ABCD1ACE33E5000FE213 /* Player_Right2.png in Resources */,
+				1CA682E71AD26CDB00104496 /* Coin2.png in Resources */,
 				1CA682DB1AD232D700104496 /* Ratz_Left3.png in Resources */,
 				1C78ABC11ACE33E5000FE213 /* Backdrop_568.png in Resources */,
 				1C78ABC41ACE33E5000FE213 /* Player_Left_Still.png in Resources */,
@@ -331,6 +346,7 @@
 				1C78ABD31ACE33E5000FE213 /* SewerSplash_568.png in Resources */,
 				1CA682DE1AD232D700104496 /* Ratz_Right1.png in Resources */,
 				1C78ABC01ACE33E5000FE213 /* Backdrop_480.png in Resources */,
+				1CA682E61AD26CDB00104496 /* Coin1.png in Resources */,
 				1C78ABC81ACE33E5000FE213 /* Player_Left4.png in Resources */,
 				1C78ABCC1ACE33E5000FE213 /* Player_Right1.png in Resources */,
 				1CA682DD1AD232D700104496 /* Ratz_Left5.png in Resources */,
@@ -340,6 +356,7 @@
 				1CA682E01AD232D700104496 /* Ratz_Right3.png in Resources */,
 				1C8C70D81ACB958B00E3B7A5 /* Images.xcassets in Resources */,
 				1C78ABCB1ACE33E5000FE213 /* Player_Right_Still.png in Resources */,
+				1CA682E81AD26CDB00104496 /* Coin3.png in Resources */,
 				1C78ABCF1ACE33E5000FE213 /* Player_Right4.png in Resources */,
 				1C78ABC31ACE33E5000FE213 /* LedgeBrick.png in Resources */,
 				1CA682E21AD232D700104496 /* Ratz_Right5.png in Resources */,
@@ -371,6 +388,7 @@
 				1C8C70CB1ACB958B00E3B7A5 /* AppDelegate.m in Sources */,
 				1C8C71051ACBCAF400E3B7A5 /* SKBGameScene.m in Sources */,
 				1C8C70C81ACB958B00E3B7A5 /* main.m in Sources */,
+				1CA682EB1AD270E900104496 /* SKBCoin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

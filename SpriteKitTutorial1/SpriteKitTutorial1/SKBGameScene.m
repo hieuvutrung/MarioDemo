@@ -11,6 +11,7 @@
 #import "SKBPlayer.h"
 #import "SKBRat.h"
 #import "SKBLedge.h"
+#import "SKBCoin.h"
 @implementation SKBGameScene
 {
     SKSpriteNode *brickBase;
@@ -176,6 +177,38 @@
             [theSecondRatz turnLeft];
         }
     }
+    
+    // Coin / sideWalls
+    if ((((firstBody.categoryBitMask & kWallCategory) != 0) &&
+         ((secondBody.categoryBitMask & kCoinCategory) != 0))) {
+        SKBCoin *theCoin = (SKBCoin *)secondBody.node;
+        if (theCoin.position.x < 100) {
+            [theCoin wrapCoin:CGPointMake(self.frame.size.width-6,
+                                          theCoin.position.y)];
+        } else {
+            [theCoin wrapCoin:CGPointMake(6, theCoin.position.y)];
+        } }
+    // Coin / Coin
+    if ((((firstBody.categoryBitMask & kCoinCategory) != 0) &&
+         ((secondBody.categoryBitMask & kCoinCategory) != 0))) {
+        SKBCoin *theFirstCoin = (SKBCoin *)firstBody.node;
+        SKBCoin *theSecondCoin = (SKBCoin *)secondBody.node;
+        NSLog(@"%@ & %@ have collided...", theFirstCoin.name,
+              theSecondCoin.name);
+        // cause first Coin to turn and change directions
+        if (theFirstCoin.coinStatus == SBCoinRunningLeft) {
+            [theFirstCoin turnRight];
+        } else if (theFirstCoin.coinStatus == SBCoinRunningRight) {
+            [theFirstCoin turnLeft];
+        }
+        
+        if (theSecondCoin.coinStatus == SBCoinRunningLeft) {
+            [theSecondCoin turnRight];
+        } else if (theSecondCoin.coinStatus == SBCoinRunningRight) {
+            [theSecondCoin turnLeft];
+        }
+    }
+  
 }
 - (void)didEndContact:(SKPhysicsContact *)contact;
 {
@@ -273,6 +306,17 @@
             // create spawn the enemy
             _enemyIsSpawningFlag = NO;
             _spawnedEnemyCount = _spawnedEnemyCount +1;
+            if (castIndex % 5 == 0) {
+                SKBCoin *newCoin = [SKBCoin initNewCoin:self
+                                          startingPoint:CGPointMake(startX, startY)
+                                              coinIndex:castIndex];
+                [newCoin spawnedInScene:self];
+            } else {
+                SKBRat *newEnemy = [SKBRat initNewRatz:self
+                                           startingPoint:CGPointMake(startX, startY)
+                                               ratzIndex:castIndex];
+                [newEnemy spawnedInScene:self];
+            }
             SKBRat *newEnemy = [SKBRat initNewRatz:self
                                      startingPoint:CGPointMake(startX, startY)
                                          ratzIndex:castIndex];
