@@ -7,7 +7,7 @@
 //
 
 #import "SKBPlayer.h"
-
+#import "SKBGameScene.h"
 @implementation SKBPlayer
 + (SKBPlayer*)initNewPlayer:(SKScene *)whichScene startingPoint:(CGPoint)location
 {
@@ -23,7 +23,7 @@
     player.name = @"player1";
     player.position = location;
     player.spriteTextures = playerTextures;
-    
+    player.playerStatus = SBPlayerFacingRight;
     // physics
     player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
     
@@ -35,7 +35,6 @@
     //    player.physicsBody.density = 0.1;
     //    player.physicsBody.linearDamping = 1.0;
     //    player.physicsBody.restitution = 1.0;
-    
     // default
     player.physicsBody.density = 1.0;
     player.physicsBody.linearDamping = 0.1;
@@ -189,5 +188,10 @@
     }];
     // jump impulse applied
     [self.physicsBody applyImpulse:CGVectorMake(0, kPlayerJumpingIncrement)];}
+- (void)spawnedInScene:(SKScene *)whichScene;
+{
+    SKBGameScene *theScene = (SKBGameScene *)whichScene;
+    _spriteTextures = theScene.spriteTextures;
+}
 @end
 

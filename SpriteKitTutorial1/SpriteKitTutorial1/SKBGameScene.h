@@ -8,8 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "SKBPlayer.h"
+#import "SKBSpriteTextures.h"
 @interface SKBGameScene : SKScene<SKPhysicsContactDelegate>
 
 @property (strong, nonatomic) SKBPlayer *playerSprite;
-
+@property (strong, nonatomic) SKBSpriteTextures *spriteTextures;
 @end

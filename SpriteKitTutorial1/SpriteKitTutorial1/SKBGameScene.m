@@ -26,7 +26,8 @@
     // setup bitmask
     self.physicsBody.categoryBitMask = kWallCategory;
     self.physicsWorld.contactDelegate = self;
-    
+    self.spriteTextures = [[SKBSpriteTextures alloc]init];
+    [self.spriteTextures createAnimationTextures];
     //add background node
     [self addBackgroundNode];
     [self addBrickBaseNode];
@@ -151,6 +152,7 @@
         SBPlayerStatus status = _playerSprite.playerStatus;
         if (!_playerSprite) {
             _playerSprite = [SKBPlayer initNewPlayer:self startingPoint:location];
+            [_playerSprite spawnedInScene:self];
         } else if (location.y >= (self.frame.size.height / 2 )) {
               // user touched upper half of the screen (zero = bottom of screen)
             if (status != SBPlayerJumpingLeft && status != SBPlayerJumpingRight && status !=

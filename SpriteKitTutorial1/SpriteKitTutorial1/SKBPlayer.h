@@ -35,4 +35,5 @@ typedef enum : int{
 - (void)skidLeft;
 - (void)skidRight;
 - (void)jump;
+- (void)spawnedInScene:(SKScene *)whichScene;
 @end
