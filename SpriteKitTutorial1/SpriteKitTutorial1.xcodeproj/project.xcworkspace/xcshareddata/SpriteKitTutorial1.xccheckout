@@ -14,6 +14,8 @@
 		<string>https://github.com/hieuvutrung/MarioDemo.git</string>
 		<key>3AE4C867B4815FB9AB2C237C34941205443874F1</key>
 		<string>https://github.com/hieuvutrung/spriteKitDemo.git</string>
+		<key>E2E339EC05FF99AF5ECAE62EDBC78398DA1111C6</key>
+		<string>https://github.com/Sumi-Interactive/SIAlertView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SpriteKitTutorial1/SpriteKitTutorial1.xcodeproj</string>
@@ -23,6 +25,8 @@
 		<string>../../..</string>
 		<key>3AE4C867B4815FB9AB2C237C34941205443874F1</key>
 		<string>../../../../spriteKitDemo</string>
+		<key>E2E339EC05FF99AF5ECAE62EDBC78398DA1111C6</key>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/hieuvutrung/MarioDemo.git</string>
@@ -32,6 +36,14 @@
 	<string>1A7ED75A68F237FDCEFFD9F65596AD7BAC28DAC7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E2E339EC05FF99AF5ECAE62EDBC78398DA1111C6</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

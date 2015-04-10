@@ -1,76 +1,99 @@
 //
-//  SKBRat.m
-//  SpriteKitTutorial1
+//  SKBRatz.m
+//  Sewer Bros
 //
-//  Created by hieu on 4/6/15.
-//  Copyright (c) 2015 hieu. All rights reserved.
+//  Created by admin on 10/29/13.
+//  Copyright (c) 2013 Apress. All rights reserved.
 //
 
 #import "SKBRat.h"
 #import "SKBGameScene.h"
 
 @implementation SKBRat
-+ (SKBRat *)initNewRatz:(SKScene *)whichScene startingPoint:(CGPoint)location
-              ratzIndex:(int)index;
+
+
+
+#pragma mark Initialization
+
+
+
++ (SKBRat *)initNewRatz:(SKScene *)whichScene startingPoint:(CGPoint)location ratzIndex:(int)index
 {
-    SKTexture * ratzTexture = [SKTexture textureWithImageNamed:kRatzRunRight1FileName];
-    SKBRat * ratz = [SKBRat spriteNodeWithTexture:ratzTexture];
-    ratz.name = [NSString stringWithFormat:@"ratz%d",index];
+    SKTexture *ratzTexture = [SKTexture textureWithImageNamed:kRatzRunRight1FileName];
+    SKBRat *ratz = [SKBRat spriteNodeWithTexture:ratzTexture];
+    ratz.name = [NSString stringWithFormat:@"ratz%d", index];
     ratz.position = location;
     ratz.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ratz.size];
     ratz.physicsBody.categoryBitMask = kRatzCategory;
-    ratz.physicsBody.contactTestBitMask = kWallCategory | kBaseCategory | kRatzCategory | kCoinCategory;
-    ratz.physicsBody.collisionBitMask = kBaseCategory | kWallCategory | kLedgeCategory | kRatzCategory | kCoinCategory;
+    ratz.physicsBody.contactTestBitMask = kWallCategory | kRatzCategory | kCoinCategory ;
+    ratz.physicsBody.collisionBitMask = kBaseCategory | kWallCategory | kLedgeCategory | kRatzCategory | kCoinCategory ;
     ratz.physicsBody.density = 1.0;
     ratz.physicsBody.linearDamping = 0.1;
     ratz.physicsBody.restitution = 0.2;
     ratz.physicsBody.allowsRotation = NO;
+    
     [whichScene addChild:ratz];
     return ratz;
 }
-- (void)spawnedInScene:(SKScene *)whichScene;
+
+- (void)spawnedInScene:(SKScene *)whichScene
 {
-    SKBGameScene * gameScene = (SKBGameScene*)whichScene;
-    self.spriteTextures = gameScene.spriteTextures;
+    SKBGameScene *theScene = (SKBGameScene *)whichScene;
+    _spriteTextures = theScene.spriteTextures;
+    
     // set initial direction and start moving
-    if (self.position.x < CGRectGetMidX(whichScene.frame)) {
+    if (self.position.x < CGRectGetMidX(whichScene.frame))
         [self runRight];
-    }else{
+    else
         [self runLeft];
-    }
 }
-- (void)wrapRatz:(CGPoint)where;
+
+
+
+#pragma mark Screen wrap
+
+
+
+- (void)wrapRatz:(CGPoint)where
 {
     SKPhysicsBody *storePB = self.physicsBody;
     self.physicsBody = nil;
     self.position = where;
     self.physicsBody = storePB;
-    
 }
-- (void)runRight;
+
+
+
+#pragma mark Movement
+
+
+
+- (void)runRight
 {
-    // set type of status
-    self.ratzStatus = SBRatzRunningRight;
-    // create animation
-    SKAction *runRightAction = [SKAction animateWithTextures:self.spriteTextures.ratzRunRightTextures timePerFrame:0.05];
-    SKAction *walkForever = [SKAction repeatActionForever:runRightAction];
+    _ratzStatus = SBRatzRunningRight;
+    
+    SKAction *walkAnimation = [SKAction animateWithTextures:_spriteTextures.ratzRunRightTextures timePerFrame:0.05];
+    SKAction *walkForever = [SKAction repeatActionForever:walkAnimation];
     [self runAction:walkForever];
-    // move right animation
+    
     SKAction *moveRight = [SKAction moveByX:kRatzRunningIncrement y:0 duration:1];
     SKAction *moveForever = [SKAction repeatActionForever:moveRight];
     [self runAction:moveForever];
 }
-- (void)runLeft;
+
+- (void)runLeft
 {
-    self.ratzStatus = SBRatzRunningLeft;
-    SKAction * runLeftAction = [SKAction animateWithTextures:self.spriteTextures.ratzRunLeftTextures timePerFrame:0.05];
-    SKAction * walkForever = [SKAction repeatActionForever:runLeftAction];
+    _ratzStatus = SBRatzRunningLeft;
+    
+    SKAction *walkAnimation = [SKAction animateWithTextures:_spriteTextures.ratzRunLeftTextures timePerFrame:0.05];
+    SKAction *walkForever = [SKAction repeatActionForever:walkAnimation];
     [self runAction:walkForever];
     
-    SKAction * moveLeft = [SKAction moveByX:-kRatzRunningIncrement y:0 duration:1];
-    SKAction * moveLeftForever = [SKAction repeatActionForever:moveLeft];
-    [self runAction:moveLeftForever];
+    SKAction *moveLeft = [SKAction moveByX:-kRatzRunningIncrement y:0 duration:1];
+    SKAction *moveForever = [SKAction repeatActionForever:moveLeft];
+    [self runAction:moveForever];
 }
+
 - (void)turnRight
 {
     self.ratzStatus = SBRatzRunningRight;
@@ -78,6 +101,7 @@
     SKAction *moveRight = [SKAction moveByX:5 y:0 duration:0.4];
     [self runAction:moveRight completion:^{[self runRight];}];
 }
+
 - (void)turnLeft
 {
     self.ratzStatus = SBRatzRunningLeft;
@@ -85,4 +109,5 @@
     SKAction *moveLeft = [SKAction moveByX:-5 y:0 duration:0.4];
     [self runAction:moveLeft completion:^{[self runLeft];}];
 }
+
 @end

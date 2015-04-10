@@ -1,28 +1,36 @@
 //
 //  SKBCoin.h
-//  SpriteKitTutorial1
+//  Sewer Bros
 //
-//  Created by hieu on 4/6/15.
-//  Copyright (c) 2015 hieu. All rights reserved.
+//  Created by admin on 11/18/13.
+//  Copyright (c) 2013 Apress. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "SKBSpriteTextures.h"
 #import "AppDelegate.h"
+#import "SKBSpriteTextures.h"
+
 #define kCoinRunningIncrement      40
-typedef enum:int{
+
+typedef enum : int {
     SBCoinRunningLeft = 0,
     SBCoinRunningRight
-}SBCoinStatus;
+} SBCoinStatus;
+
+
 @interface SKBCoin : SKSpriteNode
+
 @property int coinStatus;
 @property (nonatomic, strong) SKBSpriteTextures *spriteTextures;
-+ (SKBCoin *)initNewCoin:(SKScene *)whichScene startingPoint:(CGPoint)location
-               coinIndex:(int)index;
+
++ (SKBCoin *)initNewCoin:(SKScene *)whichScene startingPoint:(CGPoint)location coinIndex:(int)index;
 - (void)spawnedInScene:(SKScene *)whichScene;
+
 - (void)wrapCoin:(CGPoint)where;
+
 - (void)runRight;
 - (void)runLeft;
 - (void)turnRight;
 - (void)turnLeft;
+
 @end
