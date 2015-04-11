@@ -118,6 +118,17 @@
 		DD2D99321AD8E97D005E3332 /* Text_Number_8.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2D98D41AD8E97C005E3332 /* Text_Number_8.png */; };
 		DD2D99331AD8E97D005E3332 /* Text_Number_9.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2D98D51AD8E97C005E3332 /* Text_Number_9.png */; };
 		DD2D99341AD8E97D005E3332 /* Text_PlayerScoreHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2D98D61AD8E97C005E3332 /* Text_PlayerScoreHeader.png */; };
+		DD2D994E1AD92AEB005E3332 /* CoinCollected.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D99431AD92A0C005E3332 /* CoinCollected.caf */; };
+		DD2D994F1AD92AEB005E3332 /* EnemyCollected.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D99441AD92A0C005E3332 /* EnemyCollected.caf */; };
+		DD2D99501AD92AEB005E3332 /* EnemyKO.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D99451AD92A0C005E3332 /* EnemyKO.caf */; };
+		DD2D99511AD92AEB005E3332 /* Jump.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D99461AD92A0C005E3332 /* Jump.caf */; };
+		DD2D99521AD92AEB005E3332 /* Playerbitten.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D99471AD92A0C005E3332 /* Playerbitten.caf */; };
+		DD2D99531AD92AEB005E3332 /* Run.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D99481AD92A0C005E3332 /* Run.caf */; };
+		DD2D99541AD92AEB005E3332 /* Skid.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D99491AD92A0C005E3332 /* Skid.caf */; };
+		DD2D99551AD92AEB005E3332 /* SpawnCoin.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D994A1AD92A0C005E3332 /* SpawnCoin.caf */; };
+		DD2D99561AD92AEB005E3332 /* SpawnPlayer.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D994B1AD92A0C005E3332 /* SpawnPlayer.caf */; };
+		DD2D99571AD92AEB005E3332 /* Splash.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D994C1AD92A0C005E3332 /* Splash.caf */; };
+		DD2D99581AD92AEB005E3332 /* Theme.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D994D1AD92A0C005E3332 /* Theme.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +258,17 @@
 		DD2D98D41AD8E97C005E3332 /* Text_Number_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Text_Number_8.png; path = Images/Text_Number_8.png; sourceTree = "<group>"; };
 		DD2D98D51AD8E97C005E3332 /* Text_Number_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Text_Number_9.png; path = Images/Text_Number_9.png; sourceTree = "<group>"; };
 		DD2D98D61AD8E97C005E3332 /* Text_PlayerScoreHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Text_PlayerScoreHeader.png; path = Images/Text_PlayerScoreHeader.png; sourceTree = "<group>"; };
+		DD2D99431AD92A0C005E3332 /* CoinCollected.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = CoinCollected.caf; path = Images/CoinCollected.caf; sourceTree = "<group>"; };
+		DD2D99441AD92A0C005E3332 /* EnemyCollected.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EnemyCollected.caf; path = Images/EnemyCollected.caf; sourceTree = "<group>"; };
+		DD2D99451AD92A0C005E3332 /* EnemyKO.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EnemyKO.caf; path = Images/EnemyKO.caf; sourceTree = "<group>"; };
+		DD2D99461AD92A0C005E3332 /* Jump.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Jump.caf; path = Images/Jump.caf; sourceTree = "<group>"; };
+		DD2D99471AD92A0C005E3332 /* Playerbitten.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Playerbitten.caf; path = Images/Playerbitten.caf; sourceTree = "<group>"; };
+		DD2D99481AD92A0C005E3332 /* Run.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Run.caf; path = Images/Run.caf; sourceTree = "<group>"; };
+		DD2D99491AD92A0C005E3332 /* Skid.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Skid.caf; path = Images/Skid.caf; sourceTree = "<group>"; };
+		DD2D994A1AD92A0C005E3332 /* SpawnCoin.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SpawnCoin.caf; path = Images/SpawnCoin.caf; sourceTree = "<group>"; };
+		DD2D994B1AD92A0C005E3332 /* SpawnPlayer.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SpawnPlayer.caf; path = Images/SpawnPlayer.caf; sourceTree = "<group>"; };
+		DD2D994C1AD92A0C005E3332 /* Splash.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Splash.caf; path = Images/Splash.caf; sourceTree = "<group>"; };
+		DD2D994D1AD92A0C005E3332 /* Theme.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Theme.caf; path = Images/Theme.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +351,17 @@
 		1C8C70F01ACBC1FA00E3B7A5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DD2D99431AD92A0C005E3332 /* CoinCollected.caf */,
+				DD2D99441AD92A0C005E3332 /* EnemyCollected.caf */,
+				DD2D99451AD92A0C005E3332 /* EnemyKO.caf */,
+				DD2D99461AD92A0C005E3332 /* Jump.caf */,
+				DD2D99471AD92A0C005E3332 /* Playerbitten.caf */,
+				DD2D99481AD92A0C005E3332 /* Run.caf */,
+				DD2D99491AD92A0C005E3332 /* Skid.caf */,
+				DD2D994A1AD92A0C005E3332 /* SpawnCoin.caf */,
+				DD2D994B1AD92A0C005E3332 /* SpawnPlayer.caf */,
+				DD2D994C1AD92A0C005E3332 /* Splash.caf */,
+				DD2D994D1AD92A0C005E3332 /* Theme.caf */,
 				DD2D98791AD8E97C005E3332 /* Backdrop_480.png */,
 				DD2D987A1AD8E97C005E3332 /* Backdrop_568.png */,
 				DD2D987B1AD8E97C005E3332 /* Base_600.png */,
@@ -522,6 +555,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2D994E1AD92AEB005E3332 /* CoinCollected.caf in Resources */,
+				DD2D994F1AD92AEB005E3332 /* EnemyCollected.caf in Resources */,
+				DD2D99501AD92AEB005E3332 /* EnemyKO.caf in Resources */,
+				DD2D99511AD92AEB005E3332 /* Jump.caf in Resources */,
+				DD2D99521AD92AEB005E3332 /* Playerbitten.caf in Resources */,
+				DD2D99531AD92AEB005E3332 /* Run.caf in Resources */,
+				DD2D99541AD92AEB005E3332 /* Skid.caf in Resources */,
+				DD2D99551AD92AEB005E3332 /* SpawnCoin.caf in Resources */,
+				DD2D99561AD92AEB005E3332 /* SpawnPlayer.caf in Resources */,
+				DD2D99571AD92AEB005E3332 /* Splash.caf in Resources */,
+				DD2D99581AD92AEB005E3332 /* Theme.caf in Resources */,
 				DD2D98F81AD8E97C005E3332 /* Gatorz_Right_2.png in Resources */,
 				DD2D98EA1AD8E97C005E3332 /* Gatorz_Left_turn1.png in Resources */,
 				DD2D98E01AD8E97C005E3332 /* Gatorz_KO_L_Hit4.png in Resources */,

@@ -32,7 +32,14 @@
     myText.name = @"startNode";
     myText.fontSize = 30;
     myText.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)-100);
+    
+    // add sound
+    SKAction *themeSong = [SKAction playSoundFileNamed:@"Theme.caf" waitForCompletion:NO];
+    [self runAction:themeSong];
+    
     [self addChild:myText];
+    
+   
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
