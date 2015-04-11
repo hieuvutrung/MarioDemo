@@ -12,6 +12,7 @@
 #import "SKBRat.h"
 #import "SKBLedge.h"
 #import "SKBCoin.h"
+#import "SKBScores.h"
 @implementation SKBGameScene
 {
     SKSpriteNode *brickBase;
@@ -35,8 +36,18 @@
     [self addBackgroundNode];
     [self addBrickBaseNode];
     [self addLedge];
+    [self addScoring];
    [self loadCastOfCharacters];
 
+}
+- (void)addScoring
+{
+    // Scoring
+    SKBScores *sceneScores = [[SKBScores alloc] init];
+    [sceneScores createScoreNodes:self];
+    self.scoresDisplay = sceneScores;
+    _playerScore = 85942;
+    [self.scoresDisplay updateScore:self newScore:_playerScore];
 }
 - (void)addLedge
 {
@@ -111,6 +122,7 @@
     // Initialize Enemies & Schedule
     _spawnedEnemyCount = 0;
     _enemyIsSpawningFlag = NO;
+   
 }
 #pragma mark - Contact delegate
 - (void)didBeginContact:(SKPhysicsContact *)contact;
@@ -225,7 +237,7 @@
             [theCoin turnLeft];
         }
         // cause Ratz to turn and change directions
-        if (theRatz.ratzStatus == SBRatzR	unningLeft) {
+        if (theRatz.ratzStatus == SBRatzRunningLeft) {
             [theRatz turnRight];
         } else if (theRatz.ratzStatus == SBRatzRunningRight) {
             [theRatz turnLeft];

@@ -25,6 +25,14 @@
     splash.name = @"splashNode";
     splash.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     [self addChild:splash];
+    
+    // add label to splash screen
+    SKLabelNode * myText = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    myText.text = @"Press to start";
+    myText.name = @"startNode";
+    myText.fontSize = 30;
+    myText.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)-100);
+    [self addChild:myText];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -32,6 +40,7 @@
     
     // get node with name
     SKNode *splashNode = [self childNodeWithName:@"splashNode"];
+    SKNode *startNode = [self childNodeWithName:@"startNode"];
     if (splashNode != nil) {
         splashNode.name = nil;
         // zoom action
@@ -40,6 +49,10 @@
         SKAction *fadeAway = [SKAction fadeOutWithDuration: 1];
         // run zoom & face action
         SKAction *grouped = [SKAction group:@[zoom, fadeAway]];
+        
+        // start node zoom and fade action
+        [startNode runAction:grouped];
+        
         [splashNode runAction: grouped completion:^{
             // change view when done group actions
             SKBGameScene *nextScene = [[SKBGameScene alloc] initWithSize:self.size];

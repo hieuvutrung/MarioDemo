@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "SKBPlayer.h"
+#import "SKBScores.h"
 #import "SKBSpriteTextures.h"
 @interface SKBGameScene : SKScene<SKPhysicsContactDelegate>
 
@@ -17,4 +18,6 @@
 
 @property int spawnedEnemyCount;
 @property BOOL enemyIsSpawningFlag;
+@property (nonatomic,strong) SKBScores *scoresDisplay;
+@property int playerScore;
 @end
