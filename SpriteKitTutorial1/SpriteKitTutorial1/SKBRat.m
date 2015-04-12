@@ -40,7 +40,8 @@
 {
     SKBGameScene *theScene = (SKBGameScene *)whichScene;
     _spriteTextures = theScene.spriteTextures;
-    
+    self.spawnSound = [SKAction playSoundFileNamed:kRatzSpawnSoundFileName waitForCompletion:NO];
+    [self runAction:self.spawnSound];
     // set initial direction and start moving
     if (self.position.x < CGRectGetMidX(whichScene.frame))
         [self runRight];

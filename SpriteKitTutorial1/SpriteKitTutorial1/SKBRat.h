@@ -14,11 +14,13 @@ typedef enum : int{
     SBRatzRunningRight
 }SBRatzStatus;
 @interface SKBRat : SKSpriteNode
-#define kEnemySpawnEdgeBufferX       60
-#define kEnemySpawnEdgeBufferY       60
-#define kRatzRunningIncrement      40
+#define kRatzSpawnSoundFileName         @"SpawnEnemy.caf"
+#define kEnemySpawnEdgeBufferX          60
+#define kEnemySpawnEdgeBufferY          60
+#define kRatzRunningIncrement           40
 @property int ratzStatus;
 @property (strong,nonatomic) SKBSpriteTextures *spriteTextures;
+@property (nonatomic, strong) SKAction *spawnSound;
 + (SKBRat *)initNewRatz:(SKScene *)whichScene startingPoint:(CGPoint)location
                ratzIndex:(int)index;
 - (void)spawnedInScene:(SKScene *)whichScene;

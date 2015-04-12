@@ -129,6 +129,7 @@
 		DD2D99561AD92AEB005E3332 /* SpawnPlayer.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D994B1AD92A0C005E3332 /* SpawnPlayer.caf */; };
 		DD2D99571AD92AEB005E3332 /* Splash.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D994C1AD92A0C005E3332 /* Splash.caf */; };
 		DD2D99581AD92AEB005E3332 /* Theme.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD2D994D1AD92A0C005E3332 /* Theme.caf */; };
+		DD540FE31ADA637C00D45B0D /* SpawnEnemy.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD540FE21ADA62EE00D45B0D /* SpawnEnemy.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -269,6 +270,7 @@
 		DD2D994B1AD92A0C005E3332 /* SpawnPlayer.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SpawnPlayer.caf; path = Images/SpawnPlayer.caf; sourceTree = "<group>"; };
 		DD2D994C1AD92A0C005E3332 /* Splash.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Splash.caf; path = Images/Splash.caf; sourceTree = "<group>"; };
 		DD2D994D1AD92A0C005E3332 /* Theme.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Theme.caf; path = Images/Theme.caf; sourceTree = "<group>"; };
+		DD540FE21ADA62EE00D45B0D /* SpawnEnemy.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpawnEnemy.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +353,7 @@
 		1C8C70F01ACBC1FA00E3B7A5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DD540FE21ADA62EE00D45B0D /* SpawnEnemy.caf */,
 				DD2D99431AD92A0C005E3332 /* CoinCollected.caf */,
 				DD2D99441AD92A0C005E3332 /* EnemyCollected.caf */,
 				DD2D99451AD92A0C005E3332 /* EnemyKO.caf */,
@@ -555,6 +558,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD540FE31ADA637C00D45B0D /* SpawnEnemy.caf in Resources */,
 				DD2D994E1AD92AEB005E3332 /* CoinCollected.caf in Resources */,
 				DD2D994F1AD92AEB005E3332 /* EnemyCollected.caf in Resources */,
 				DD2D99501AD92AEB005E3332 /* EnemyKO.caf in Resources */,

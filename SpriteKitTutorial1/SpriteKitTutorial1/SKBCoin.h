@@ -11,7 +11,7 @@
 #import "SKBSpriteTextures.h"
 
 #define kCoinRunningIncrement      40
-
+#define kCoinSpawnSoundFileName    @"SpawnCoin.caf"
 typedef enum : int {
     SBCoinRunningLeft = 0,
     SBCoinRunningRight
@@ -21,8 +21,9 @@ typedef enum : int {
 @interface SKBCoin : SKSpriteNode
 
 @property int coinStatus;
-@property (nonatomic, strong) SKBSpriteTextures *spriteTextures;
 
+@property (nonatomic, strong) SKBSpriteTextures *spriteTextures;
+@property (nonatomic, strong) SKAction *spawnSound;
 + (SKBCoin *)initNewCoin:(SKScene *)whichScene startingPoint:(CGPoint)location coinIndex:(int)index;
 - (void)spawnedInScene:(SKScene *)whichScene;
 
